@@ -1,0 +1,91 @@
+.card {
+    position: relative;
+    border: 1px solid #f3f3f3;
+    padding: 30px;
+    width: 220px;
+    border-radius: 40px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    & .heart {
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        background-color: #ffff;
+        border: 1px solid #f2f2f2;
+        box-sizing: border-box;
+        width: 35px;
+        height: 35px; 
+        border-radius: 8px;
+        cursor: pointer;
+        & img {
+            display: block;
+            margin: auto;
+            height: 19px;
+            width: 18px;
+        }
+        & .like {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            background-color: #FEF0F0;
+            border: 1px solid #f2f2f2;
+            box-sizing: border-box;
+            width: 32px;
+            height: 32px; 
+            border-radius: 8px;
+        }
+    }
+    & .image {
+        width: 133px;
+        height: 112px;
+    }
+    & .text {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        margin-bottom: 14px;
+    }
+    & .cardBottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & .price {
+            display: flex;
+            flex-direction: column;
+            & span {
+                font-weight: 500;
+                font-size: 11px;
+                line-height: 13px;
+                text-transform: uppercase;
+                color: #BDBDBD;            
+            }
+            & b {
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+        & .button {
+            background-color: #ffff;
+            border: 1px solid #f2f2f2;
+            box-sizing: border-box;
+            border-radius: 8px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            & img {
+                display: block;
+                margin: auto;
+                width: 14px;
+                height: 14px;
+            }
+            & .added {
+                background-color: #89F09C;
+            }
+        }
+    }
+  }
+
+
+
