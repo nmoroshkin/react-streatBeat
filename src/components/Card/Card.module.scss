@@ -24,17 +24,17 @@
             height: 19px;
             width: 18px;
         }
-        & .like {
-            position: absolute;
-            top: 20px;
-            left: 25px;
-            background-color: #FEF0F0;
-            border: 1px solid #f2f2f2;
-            box-sizing: border-box;
-            width: 32px;
-            height: 32px; 
-            border-radius: 8px;
-        }
+    }
+    .liked {
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        background-color: #FEF0F0;
+        border: 1px solid #f2f2f2;
+        box-sizing: border-box;
+        width: 32px;
+        height: 32px; 
+        border-radius: 8px;
     }
     & .image {
         width: 133px;
@@ -80,12 +80,13 @@
                 width: 14px;
                 height: 14px;
             }
-            & .added {
-                background-color: #89F09C;
-            }
-        }
+        }  
+        .added {
+            background-color: #89F09C;
+        }      
     }
   }
+
 
 
 
