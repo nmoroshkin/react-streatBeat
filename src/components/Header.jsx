@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import logo from '../assets/img/logo.svg';
-import cart from '../assets/img/cart.svg';
+import cartImage from '../assets/img/cart.svg';
 import profile from '../assets/img/profile.svg';
 import favorites from '../assets/img/favorites.svg';
 
-const Header = ({ onClickCart }) => {
+const Header = ({ onClickCart, items }) => {
+    const cart = useSelector(({ cart }) => cart.cart);
+    const amount = cart.reduce((sum, item) => sum + item.price, 0);
+
     return (
         <header className="header">
             <div className="header__main">
@@ -20,8 +24,8 @@ const Header = ({ onClickCart }) => {
             </div>
             <ul className="header__status">
                 <li onClick={() => onClickCart()} className="header__status-cart">
-                    <img className="cart__img" src={cart} alt="" />
-                    <span className="cart__price">1205 руб.</span>
+                    <img className="cart__img" src={cartImage} alt="" />
+                    {cart.length > 0 ? <span className="cart__price">{amount} руб.</span> : null}
                 </li>
                 <li className="header__status-likeprofile">
                     <Link to={'/favorites'}>
@@ -36,4 +40,4 @@ const Header = ({ onClickCart }) => {
     );
 };
 
-export default Header;
+export default React.memo(Header);

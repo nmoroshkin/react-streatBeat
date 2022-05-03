@@ -1,15 +1,52 @@
+import axios from 'axios';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Card from '../components/Card';
 
-const Favorites = ({
-    items,
-    isLoading,
-    addToCart,
-    isItemAdded,
-    isItemFavorite,
-    onAddToFavorite,
-}) => {
+import { addSneakersToCart, removeSneakersFromCart } from '../redux/actions/cart';
+import { addFavorite, removeFavorite } from '../redux/actions/favorites';
+
+const Favorites = () => {
+    const dispatch = useDispatch();
+    const cart = useSelector(({ cart }) => cart.cart);
+    const items = useSelector(({ favorites }) => favorites.favorites);
+
+    const added = (id) => {
+        return cart.some((item) => item.parentId === id);
+    };
+    const favorited = (id) => {
+        return items.some((item) => item.parentId === id);
+    };
+
+    const handleAddSneakersToCart = async (obj) => {
+        try {
+            if (cart.find((item) => item.id === obj.parentId)) {
+                dispatch(removeSneakersFromCart(obj.id));
+                await axios.delete(`/cart/${obj.id}`);
+                return false;
+            }
+            await axios.post('/cart', obj);
+            dispatch(addSneakersToCart(obj));
+        } catch (err) {
+            console.log(err.name);
+        }
+    };
+
+    const handleAddToFavorite = async (obj) => {
+        try {
+            if (items.find((item) => item.id === obj.id)) {
+                dispatch(removeFavorite(obj.id));
+                await axios.delete(`/favorites/${obj.id}`);
+                return false;
+            }
+            dispatch(addFavorite(obj));
+            // await axios.post('/favorites', obj);
+        } catch (err) {
+            console.log(err.name);
+        }
+    };
+
     return (
         <div className="content">
             <div className="content__header">
@@ -19,8 +56,10 @@ const Favorites = ({
                 {items.map((item) => (
                     <Card
                         key={item.id}
-                        onFavorite={(obj) => onAddToFavorite(obj)}
-                        favorited={true}
+                        favorited={favorited}
+                        onClickAddSneaker={handleAddSneakersToCart}
+                        onClickFavorite={handleAddToFavorite}
+                        added={added}
                         {...item}
                     />
                 ))}

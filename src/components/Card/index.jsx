@@ -1,7 +1,4 @@
 import React from 'react';
-import ContentLoader from 'react-content-loader';
-
-import AppContext from '../../context';
 
 import plus from '../../assets/img/plus.svg';
 import check from '../../assets/img/check.svg';
@@ -10,28 +7,34 @@ import heartLike from '../../assets/img/heart-like.svg';
 
 import styles from './Card.module.scss';
 
-const Card = ({ id, imageUrl, name, price, onPlus, favorited = false, onFavorite }) => {
-    const [isFavorite, setIsFavorite] = React.useState(favorited);
+const Card = ({
+    id,
+    imageUrl,
+    name,
+    price,
+    onClickAddSneaker,
+    added,
+    favorited = true,
+    onClickFavorite,
+}) => {
+    const obj = { id, parentId: id, imageUrl, name, price };
+    // const { isItemFavorite } = React.useContext(AppContext);
 
-    const obj = { id, imageUrl, name, price };
-    const isItemAdded = React.useContext(AppContext);
-
-    const onAddToCart = () => {
-        onPlus(obj);
+    const addFavorite = () => {
+        onClickFavorite(obj);
     };
 
-    const onClickFavorite = () => {
-        onFavorite(obj);
-        setIsFavorite(!isFavorite);
+    const addSneaker = () => {
+        onClickAddSneaker(obj);
     };
 
     return (
         <div className={styles.card}>
             <button
-                onClick={onClickFavorite}
-                className={isFavorite ? styles.heart + ' ' + `${styles.liked}` : styles.heart}
+                onClick={addFavorite}
+                className={favorited(id) ? styles.heart + ' ' + `${styles.liked}` : styles.heart}
             >
-                <img src={isFavorite ? heartLike : heart} alt="" />
+                <img src={favorited(id) ? heartLike : heart} alt="" />
             </button>
             <img className={styles.image} src={imageUrl} alt="" />
             <p className={styles.text}>{name}</p>
@@ -41,16 +44,14 @@ const Card = ({ id, imageUrl, name, price, onPlus, favorited = false, onFavorite
                     <b>{price} руб.</b>
                 </div>
                 <button
-                    onClick={onAddToCart}
-                    className={
-                        isItemAdded(id) ? styles.button + ' ' + `${styles.added}` : styles.button
-                    }
+                    onClick={addSneaker}
+                    className={added(id) ? styles.button + ' ' + `${styles.added}` : styles.button}
                 >
-                    <img src={isItemAdded(id) ? check : plus} alt="" />
+                    <img src={added(id) ? check : plus} alt="" />
                 </button>
             </div>
         </div>
     );
 };
 
-export default Card;
+export default React.memo(Card);
