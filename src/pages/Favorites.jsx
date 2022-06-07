@@ -6,11 +6,16 @@ import Card from '../components/Card';
 
 import { addSneakersToCart, removeSneakersFromCart } from '../redux/actions/cart';
 import { addFavorite, removeFavorite } from '../redux/actions/favorites';
+import { fetchFavorite } from '../redux/actions/favorites';
 
 const Favorites = () => {
     const dispatch = useDispatch();
     const cart = useSelector(({ cart }) => cart.cart);
     const items = useSelector(({ favorites }) => favorites.favorites);
+
+    React.useEffect(() => {
+        dispatch(fetchFavorite());
+    }, []);
 
     const added = (id) => {
         return cart.some((item) => item.parentId === id);
@@ -41,7 +46,7 @@ const Favorites = () => {
                 return false;
             }
             dispatch(addFavorite(obj));
-            // await axios.post('/favorites', obj);
+            await axios.post('/favorites', obj);
         } catch (err) {
             console.log(err.name);
         }
