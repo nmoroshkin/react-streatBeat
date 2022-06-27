@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Card from '../components/Card';
 
-import { addSneakersToCart, removeSneakersFromCart } from '../redux/actions/cart';
-import { addFavorite, removeFavorite } from '../redux/actions/favorites';
-import { fetchFavorite } from '../redux/actions/favorites';
+import { addSneakersToCart, removeSneakersFromCart } from '../redux/slices/cartSlice';
+import { addFavorite, removeFavorite, fetchFavorite } from '../redux/slices/favoritesSlice';
 
 const Favorites = () => {
     const dispatch = useDispatch();

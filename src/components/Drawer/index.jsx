@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fecthCart, removeSneakersFromCart, removeAll } from '../../redux/actions/cart';
-import { addOrder } from '../../redux/actions/orders';
+import { addOrder } from '../../redux/slices/ordersSlice';
+import { fetchCart, removeSneakersFromCart, removeAll } from '../../redux/slices/cartSlice';
 
 import arrow from '../../assets/img/arrow.svg';
 import deleteBtn from '../../assets/img/delete.svg';
@@ -19,13 +19,13 @@ const Drawer = ({ opened, onClose }) => {
     const tax = Math.trunc((amount * 5) / 100);
 
     React.useEffect(() => {
-        dispatch(fecthCart());
+        dispatch(fetchCart());
     }, []);
 
-    const handleOrder = async () => {
+    const handleOrder = () => {
         try {
             dispatch(addOrder(cart));
-            await axios.post(`/orders/`, {
+            axios.post(`/orders/`, {
                 items: cart,
             });
             cart.map((item) => axios.delete(`/cart/${item.id}`));
@@ -35,13 +35,9 @@ const Drawer = ({ opened, onClose }) => {
         }
     };
 
-    // const onClickOreder = () => {
-    //     onCheckOut(items);
-    // };
-
-    const removeItem = async (id) => {
+    const removeItem = (id) => {
         try {
-            await axios.delete(`/cart/${id}`);
+            axios.delete(`/cart/${id}`);
             dispatch(removeSneakersFromCart(id));
         } catch (err) {
             console.log(err.name);

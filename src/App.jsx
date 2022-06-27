@@ -10,6 +10,7 @@ function App() {
     const [cartOpened, setCartOpened] = React.useState(false);
 
     const onOpenCart = React.useCallback(() => {
+        window.scrollTo(0, 0);
         setCartOpened(true);
     }, [cartOpened]);
 
@@ -22,18 +23,20 @@ function App() {
     };
 
     return (
-        <div className="wrppaer">
+        <>
             <Drawer opened={cartOpened} onClose={onCloseCart} />
-            <Header onClickCart={onOpenCart} />
-            <Routes>
-                <Route
-                    path="/"
-                    element={<Home searchValue={searchValue} onSearchValue={onSearchValue} />}
-                />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/orders" element={<Orders />} />
-            </Routes>
-        </div>
+            <div className="wrppaer">
+                <Header onClickCart={onOpenCart} />
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Home searchValue={searchValue} onSearchValue={onSearchValue} />}
+                    />
+                    <Route path="/favorites" element={<Favorites />} />
+                    <Route path="/orders" element={<Orders />} />
+                </Routes>
+            </div>
+        </>
     );
 }
 

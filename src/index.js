@@ -11,11 +11,9 @@ import './scss/app.scss';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>,
 );

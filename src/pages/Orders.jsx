@@ -2,7 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchOrder } from '../redux/actions/orders';
+// import { fetchOrder } from '../redux/actions/orders';
+import { fetchOrder } from '../redux/slices/ordersSlice';
 
 import CardOrder from '../components/Card/CardOrder';
 

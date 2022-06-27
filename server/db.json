@@ -1,99 +1,79 @@
 {
-  "sneakers": [
-    {
-      "id": 1,
-      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "price": 12999,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/48a/500_500_1/48a7f18a60ce05b271f25bc2836f2755.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Мужские кроссовки Nike Kyrie Infinity",
-      "price": 16299,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/4cb/500_500_1/4cb031bcd6820d8d097ac1ec134d3b9e.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Мужские Кроссовки Nike Air Max 270",
-      "price": 12999,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/2c9/500_500_1/2c9fe145505d06234a9caef211337eb5.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Мужские кроссовки PUMA Blaze of Glory",
-      "price": 15999,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/5ed/500_500_1/5ed869b723be0cda626ef38554fcdb15.jpg"
-    },
-    {
-      "id": 5,
-      "name": "Мужские кроссовки Under Armour Curry 8",
-      "price": 15199,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/f20/500_500_1/f20313523458d71593b11a7f3222c0d9.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Мужские кроссовки Jordan Air Jordan 11 Comfort Low",
-      "price": 17199,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/425/500_500_1/42560f2bd4fbabf13eb3bade33d90516.jpg"
-    },
-    {
-      "id": 7,
-      "name": "Мужские кроссовки Nike LeBron Witness 5",
-      "price": 12399,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/6d3/500_500_1/6d37ee2a2e725b71f2d4881a0e04f335.jpg"
-    },
-    {
-      "id": 8,
-      "name": "Мужские кроссовки Nike Lebron Witness VI",
-      "price": 13899,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/22d/500_500_1/22d86fd2a4512e977fc4f5511e8a8c99.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Мужские кроссовки Nike Kyrie 7",
-      "price": 15699,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/1ed/500_500_1/1ed36f6b3f9de611a4b472aca1f6b81e.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Мужские кроссовки Nike KOBE XI",
-      "price": 10990,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/57c/500_500_1/57c9fa92cb6bdf893fb80f44f0f423ae.jpeg"
-    },
-    {
-      "id": 11,
-      "name": "Мужские кроссовки adidas Performance Dame 7 Extply",
-      "price": 15999,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/1d2/500_500_1/1d20f6b1b25480cb2d4042f49c1be23e.JPG"
-    },
-    {
-      "id": 12,
-      "name": "Мужские кроссовки adidas Performance D Rose 9",
-      "price": 12999,
-      "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/479/500_500_1/479f1b2ee3ac622e54afaf6c3112335f.jpg"
-    }
-  ],
-  "cart": [],
-  "favorites": [],
-  "orders": [
-    {
-      "items": [
+    "sneakers": [
         {
-          "id": 2,
-          "parentId": 2,
-          "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/4cb/500_500_1/4cb031bcd6820d8d097ac1ec134d3b9e.jpg",
-          "name": "Мужские кроссовки Nike Kyrie Infinity",
-          "price": 16299
+            "id": 1,
+            "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+            "price": 12999,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/48a/500_500_1/48a7f18a60ce05b271f25bc2836f2755.jpg"
         },
         {
-          "id": 1,
-          "parentId": 1,
-          "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/48a/500_500_1/48a7f18a60ce05b271f25bc2836f2755.jpg",
-          "name": "Мужские Кроссовки Nike Blazer Mid Suede",
-          "price": 12999
+            "id": 2,
+            "name": "Мужские кроссовки Nike Kyrie Infinity",
+            "price": 16299,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/4cb/500_500_1/4cb031bcd6820d8d097ac1ec134d3b9e.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Мужские Кроссовки Nike Air Max 270",
+            "price": 12999,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/2c9/500_500_1/2c9fe145505d06234a9caef211337eb5.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Мужские кроссовки adidas Originals Niteball",
+            "price": 16999,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/75b/500_500_1/75b3e73f587fc798e9b922055b17acdc.JPG"
+        },
+        {
+            "id": 5,
+            "name": "Мужские кроссовки Under Armour Curry 8",
+            "price": 15199,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/f20/500_500_1/f20313523458d71593b11a7f3222c0d9.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Мужские кроссовки Jordan Air Jordan 11 Comfort Low",
+            "price": 17199,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/425/500_500_1/42560f2bd4fbabf13eb3bade33d90516.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Мужские кроссовки Nike LeBron Witness 5",
+            "price": 12399,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/6d3/500_500_1/6d37ee2a2e725b71f2d4881a0e04f335.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Мужские кроссовки Nike Lebron Witness VI",
+            "price": 13899,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/22d/500_500_1/22d86fd2a4512e977fc4f5511e8a8c99.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Мужские кроссовки Nike Kyrie Infinity",
+            "price": 15699,
+            "imageUrl": "https://static.street-beat.ru/upload/iblock/15d/15d34e60118a2992099e5d2980a09d86.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Мужские кроссовки Nike KOBE XI",
+            "price": 10990,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/57c/500_500_1/57c9fa92cb6bdf893fb80f44f0f423ae.jpeg"
+        },
+        {
+            "id": 11,
+            "name": "Мужские кроссовки adidas Performance Dame 7 Extply",
+            "price": 15999,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/1d2/500_500_1/1d20f6b1b25480cb2d4042f49c1be23e.JPG"
+        },
+        {
+            "id": 12,
+            "name": "Мужские кроссовки adidas Performance D Rose 9",
+            "price": 12999,
+            "imageUrl": "https://static.street-beat.ru/upload/resize_cache/iblock/479/500_500_1/479f1b2ee3ac622e54afaf6c3112335f.jpg"
         }
-      ],
-      "id": 1
-    }
-  ]
+    ],
+    "cart": [],
+    "favorites": [],
+    "orders": []
 }

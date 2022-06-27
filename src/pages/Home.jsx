@@ -7,14 +7,14 @@ import search from '../assets/img/search.svg';
 import Card from '../components/Card';
 import LoadingCard from '../components/Card/LoadingCard';
 
-import { fetchSneakers } from '../redux/actions/sneakers';
-import { addSneakersToCart, removeSneakersFromCart } from '../redux/actions/cart';
-import { addFavorite, removeFavorite, fetchFavorite } from '../redux/actions/favorites';
+import { fetchSneakers } from '../redux/slices/sneakersSlice';
+import { addFavorite, removeFavorite, fetchFavorite } from '../redux/slices/favoritesSlice';
+import { addSneakersToCart, removeSneakersFromCart } from '../redux/slices/cartSlice';
 
 const Home = ({ searchValue, onSearchValue }) => {
     const dispatch = useDispatch();
     const cart = useSelector(({ cart }) => cart.cart);
-    const items = useSelector(({ sneakers }) => sneakers.items);
+    const { items, status } = useSelector(({ sneakers }) => sneakers);
     const isLoaded = useSelector(({ sneakers }) => sneakers.isLoaded);
     const favorites = useSelector(({ favorites }) => favorites.favorites);
 
@@ -31,29 +31,29 @@ const Home = ({ searchValue, onSearchValue }) => {
         return favorites.some((item) => item.parentId === id);
     };
 
-    const handleAddSneakersToCart = async (obj) => {
+    const handleAddSneakersToCart = (obj) => {
         try {
             if (cart.find((item) => item.id === obj.parentId)) {
                 dispatch(removeSneakersFromCart(obj.id));
-                await axios.delete(`/cart/${obj.id}`);
-                return false;
+                axios.delete(`/cart/${obj.id}`);
+            } else {
+                axios.post('/cart', obj);
+                dispatch(addSneakersToCart(obj));
             }
-            await axios.post('/cart', obj);
-            dispatch(addSneakersToCart(obj));
         } catch (err) {
             console.log(err.name);
         }
     };
 
-    const handleAddToFavorite = async (obj) => {
+    const handleAddToFavorite = (obj) => {
         try {
-            if (favorites.find((item) => item.id === obj.id)) {
+            if (favorites.find((item) => item.id === obj.parentId)) {
                 dispatch(removeFavorite(obj.id));
-                await axios.delete(`/favorites/${obj.id}`);
-                return false;
+                axios.delete(`/favorites/${obj.id}`);
+            } else {
+                dispatch(addFavorite(obj));
+                axios.post('/favorites', obj);
             }
-            dispatch(addFavorite(obj));
-            await axios.post('/favorites', obj);
         } catch (err) {
             console.log(err.name);
         }
@@ -63,7 +63,7 @@ const Home = ({ searchValue, onSearchValue }) => {
         const filteredItem = items.filter((item) =>
             item.name.toLowerCase().includes(searchValue.toLowerCase()),
         );
-        return isLoaded
+        return status !== 'loading'
             ? filteredItem.map((item) => (
                   <Card
                       key={item.id}
@@ -99,19 +99,3 @@ const Home = ({ searchValue, onSearchValue }) => {
 };
 
 export default Home;
-
-{
-    /* {!isLoading
-                    ? items.map((item) => (
-                          <Card
-                              key={item.id}
-                              loading={isLoading}
-                              onPlus={(obj) => addToCart(obj)}
-                              onFavorite={(obj) => onAddToFavorite(obj)}
-                              {...item}
-                          />
-                      ))
-                    : Array(12)
-                          .fill(0)
-                          .map((_, index) => <LoadingCard key={index} />)} */
-}

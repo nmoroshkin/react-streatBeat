@@ -19,7 +19,6 @@ const Header = ({ onClickCart, items }) => {
                 </Link>
                 <div className="header__main-info">
                     <h3 className="info__title">React Sneakers</h3>
-                    <p className="info__text">Магазин лучших кроссовок</p>
                 </div>
             </div>
             <ul className="header__status">
